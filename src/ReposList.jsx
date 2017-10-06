@@ -30,7 +30,7 @@ class ReposList extends React.Component {
       <div>
         <Header />
         <h1>ReposList</h1>
-        <p>{repos}</p>
+        <div>{repos}</div>
       </div>
     );
   }
