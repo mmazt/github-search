@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Table, Loader, Input, Button, Icon } from 'semantic-ui-react';
-import { setSearchTerm, setSearchData } from './actionCreators';
-import getData from './Requests';
+import { setSearchTerm, setSearchData } from './actions/actionCreators';
+import getData from './requests/Requests';
+import Header from './Header';
 
 class Landing extends Component {
   state = { loading: false };
@@ -39,7 +40,7 @@ class Landing extends Component {
       <Table.Cell>{item.login}</Table.Cell>
       <Table.Cell>{item.html_url}</Table.Cell>
       <Table.Cell>
-        <Link to={`/user/${item.login}`}>Abrir</Link>
+        <Link to={`/${item.login}`}>Abrir</Link>
       </Table.Cell>
     </Table.Row>
   );
@@ -53,6 +54,7 @@ class Landing extends Component {
 
     return (
       <div className="App">
+        <Header />
         <Input onChange={this.handleChange} />
         <Button onClick={this.handleGetData}>
           <Icon name="search" />Pesquisar

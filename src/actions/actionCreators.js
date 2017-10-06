@@ -15,3 +15,7 @@ export function setUserData(userData) {
 export function setReposData(reposData) {
   return { type: types.SET_REPOS_DATA, payload: reposData };
 }
+
+export function setRepoDetails(reposData) {
+  return { type: types.SET_REPO_DETAILS, payload: reposData };
+}

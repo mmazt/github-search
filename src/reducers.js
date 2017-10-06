@@ -1,16 +1,18 @@
-import * as types from './actions';
+import * as types from './actions/actions';
 
 const DEFAULT_STATE = {
   searchTerm: '',
   searchData: [],
   userData: {},
-  reposData: []
+  reposData: [],
+  repoDetails: {}
 };
 
 const setSearchTerm = (state, action) => Object.assign({}, state, { searchTerm: action.payload });
 const setSearchData = (state, action) => Object.assign({}, state, { searchData: action.payload });
 const setUserData = (state, action) => Object.assign({}, state, { userData: action.payload });
 const setReposData = (state, action) => Object.assign({}, state, { reposData: action.payload });
+const setRepoDetails = (state, action) => Object.assign({}, state, { repoDetails: action.payload });
 
 const rootReducer = (state = DEFAULT_STATE, action) => {
   switch (action.type) {
@@ -22,6 +24,8 @@ const rootReducer = (state = DEFAULT_STATE, action) => {
       return setUserData(state, action);
     case types.SET_REPOS_DATA:
       return setReposData(state, action);
+    case types.SET_REPO_DETAILS:
+      return setRepoDetails(state, action);
     default:
       return state;
   }
