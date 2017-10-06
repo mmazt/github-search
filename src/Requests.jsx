@@ -5,7 +5,7 @@ const getData = (tipo, dados) => {
 
   switch (tipo) {
     case 'search':
-      url += `/search/users?q=${dados}`;
+      url += `/search/users?q=${dados.searchTerm}&page=${dados.page}&per_page=20`;
       break;
     case 'user':
       url += `/users/${dados}`;

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { Table } from 'semantic-ui-react';
+import { Table, Loader, Input, Button, Icon } from 'semantic-ui-react';
 import { setSearchTerm, setSearchData } from './actionCreators';
 import getData from './Requests';
 
@@ -16,7 +16,9 @@ class Landing extends Component {
     const { searchTerm } = this.props;
 
     this.setState({ loading: true }); // Estabelece o estado de loading na UI
-    const data = getData('search', searchTerm); //Requisita os dados
+
+    const data = getData('search', { searchTerm, page: 1 }); //Requisita os dados com a primeira paginação
+
     data
       .then(response => {
         this.props.dispatch(setSearchData(response.items)); //Envia os dados para a store
@@ -33,7 +35,7 @@ class Landing extends Component {
   };
 
   handleTableRows = item => (
-    <Table.Row>
+    <Table.Row key={item.login}>
       <Table.Cell>{item.login}</Table.Cell>
       <Table.Cell>{item.html_url}</Table.Cell>
       <Table.Cell>
@@ -43,23 +45,34 @@ class Landing extends Component {
   );
 
   render() {
-    const results = this.props.searchData
-      ? this.props.searchData.map(item => {
-          return this.handleTableRows(item);
-        })
-      : '';
+    const { loading } = this.state;
+    const { searchData } = this.props;
+    const results = searchData.map(item => {
+      return this.handleTableRows(item);
+    });
+
     return (
       <div className="App">
-        <input onChange={this.handleChange} />
-        <button onClick={this.handleGetData}>Pesquisa</button>
-        <Table textAlign="center" striped basic celled selectable>
-          <Table.Header>
-            <Table.HeaderCell>Nome</Table.HeaderCell>
-            <Table.HeaderCell>URL</Table.HeaderCell>
-            <Table.HeaderCell>Link</Table.HeaderCell>
-          </Table.Header>
-          <Table.Body>{results}</Table.Body>
-        </Table>
+        <Input onChange={this.handleChange} />
+        <Button onClick={this.handleGetData}>
+          <Icon name="search" />Pesquisar
+        </Button>
+        {loading ? (
+          <Loader active={loading}>Carregando</Loader>
+        ) : searchData.length > 0 ? (
+          <Table textAlign="center" striped basic celled selectable>
+            <Table.Header>
+              <Table.Row>
+                <Table.HeaderCell>Nome</Table.HeaderCell>
+                <Table.HeaderCell>URL</Table.HeaderCell>
+                <Table.HeaderCell>Link</Table.HeaderCell>
+              </Table.Row>
+            </Table.Header>
+            <Table.Body>{results}</Table.Body>
+          </Table>
+        ) : (
+          <p>Nenhum resultado encontrado</p>
+        )}
       </div>
     );
   }
