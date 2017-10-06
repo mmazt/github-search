@@ -10,4 +10,4 @@ Após isso, executar `npm install` ou `yarn install` para instalar as dependenci
 
 Para rodar o aplicativo no modo dev, `npm start` ou `yarn start`.
 Para construir uma build e rodar um servidor de produção:
-`npm build` e depois de concluído `npm serve` e o servidor irá rodar o aplicativo no browser :+1
+`npm build` e depois de concluído `npm serve` e o servidor irá rodar o aplicativo no browser :+1:
