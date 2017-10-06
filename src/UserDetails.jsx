@@ -40,6 +40,7 @@ class UserDetails extends React.Component {
     const { userData, reposData } = this.props;
     const { loading } = this.state;
     const repositories = reposData.map(item => this.handleRepos(item));
+    
     return (
       <div>
         <Dimmer active={loading}>
