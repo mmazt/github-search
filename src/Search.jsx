@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import Loader from './helper/Loader';
+import Loader from './common/Loader';
 import { setSearchTerm, setSearchData } from './actions/actionCreators';
 import getData from './requests/Requests';
+import * as requests from './requests/requestList';
 import Header from './Header';
+import SearchComponent from './common/SearchComponent';
 
 class Search extends Component {
   state = { loading: false };
@@ -21,7 +23,7 @@ class Search extends Component {
 
     this.setState({ loading: true }); // Estabelece o estado de loading na UI
 
-    const data = getData('search', { searchTerm, page: 1 }); //Requisita os dados com a primeira paginação
+    const data = getData(requests.search, { searchTerm, page: 1 }); //Requisita os dados com a primeira paginação
 
     data
       .then(response => {
@@ -56,12 +58,9 @@ class Search extends Component {
     });
 
     return (
-      <div className="App">
+      <div className="Search">
         <Header />
-        <input type="text" value={searchTerm} onChange={this.handleChange} />
-        <button onClick={this.handleGetData}>
-          <i className="fa fa-search" aria-hidden="true" /> Pesquisar
-        </button>
+        <SearchComponent value={searchTerm} handleChange={this.handleChange} handleClick={this.handleGetData} />
         {loading ? <Loader /> : searchData.length > 0 ? results : <p>Nenhum resultado encontrado</p>}
       </div>
     );

@@ -2,13 +2,14 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import getData from './requests/Requests';
+import * as requests from './requests/requestList';
 import { setReposData } from './actions/actionCreators';
 import Header from './Header';
 
 class ReposList extends React.Component {
   componentDidMount() {
     const { user } = this.props.match.params;
-    getData('repos', user).then(response => {
+    getData(requests.repos, user).then(response => {
       this.props.dispatch(setReposData(response));
     });
   }
