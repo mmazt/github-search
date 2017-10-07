@@ -1,6 +1,6 @@
 {
   "name": "github-search",
-  "version": "0.0.5",
+  "version": "0.0.9",
   "private": true,
   "dependencies": {
     "axios": "^0.16.2",
@@ -9,9 +9,7 @@
     "react-redux": "^5.0.6",
     "react-router-dom": "^4.2.2",
     "react-scripts": "1.0.14",
-    "redux": "^3.7.2",
-    "semantic-ui-css": "^2.2.12",
-    "semantic-ui-react": "^0.74.2"
+    "redux": "^3.7.2"
   },
   "scripts": {
     "start": "react-scripts start",

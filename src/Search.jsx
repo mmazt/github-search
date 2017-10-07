@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { Table, Loader, Input, Button, Icon } from 'semantic-ui-react';
+import Loader from './helper/Loader';
 import { setSearchTerm, setSearchData } from './actions/actionCreators';
 import getData from './requests/Requests';
 import Header from './Header';
@@ -11,7 +11,6 @@ class Search extends Component {
 
   componentDidMount() {
     if (this.props.searchTerm) {
-      getData('search', { searchTerm: this.props.searchTerm, page: 1 });
     }
   }
 
@@ -40,13 +39,13 @@ class Search extends Component {
   };
 
   handleTableRows = item => (
-    <Table.Row key={item.login}>
-      <Table.Cell>{item.login}</Table.Cell>
-      <Table.Cell>{item.html_url}</Table.Cell>
-      <Table.Cell>
+    <tr key={item.login}>
+      <td>{item.login}</td>
+      <td>{item.html_url}</td>
+      <td>
         <Link to={`/${item.login}`}>Abrir</Link>
-      </Table.Cell>
-    </Table.Row>
+      </td>
+    </tr>
   );
 
   render() {
@@ -59,23 +58,23 @@ class Search extends Component {
     return (
       <div className="App">
         <Header />
-        <Input value={searchTerm} onChange={this.handleChange} />
-        <Button onClick={this.handleGetData}>
-          <Icon name="search" />Pesquisar
-        </Button>
+        <input value={searchTerm} onChange={this.handleChange} />
+        <button onClick={this.handleGetData}>
+          <i class="fa fa-search" aria-hidden="true" />Pesquisar
+        </button>
         {loading ? (
-          <Loader active={loading}>Carregando</Loader>
+          <Loader />
         ) : searchData.length > 0 ? (
-          <Table textAlign="center" striped basic celled selectable>
-            <Table.Header>
-              <Table.Row>
-                <Table.HeaderCell>Nome</Table.HeaderCell>
-                <Table.HeaderCell>URL</Table.HeaderCell>
-                <Table.HeaderCell>Link</Table.HeaderCell>
-              </Table.Row>
-            </Table.Header>
-            <Table.Body>{results}</Table.Body>
-          </Table>
+          <table>
+            <thead>
+              <tr>
+                <th>Nome</th>
+                <th>URL</th>
+                <th>Link</th>
+              </tr>
+            </thead>
+            <tbody>{results}</tbody>
+          </table>
         ) : (
           <p>Nenhum resultado encontrado</p>
         )}

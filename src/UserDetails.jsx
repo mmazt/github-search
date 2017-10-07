@@ -2,8 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import getData from './requests/Requests';
-import { Dimmer, Loader } from 'semantic-ui-react';
 import { setUserData } from './actions/actionCreators';
+import Loader from './helper/Loader';
 import Header from './Header';
 
 class UserDetails extends React.Component {
@@ -30,12 +30,15 @@ class UserDetails extends React.Component {
     return (
       <div>
         <Header />
-        <Dimmer active={loading}>
-          <Loader>Carregando Dados</Loader>
-        </Dimmer>
-        <img src={userData.avatar_url} alt="Avatar do Usuário" />
-        <h2>{userData.name}</h2>
-        <Link to={`/${userData.login}/repos`}>Repositórios</Link>
+        {loading ? (
+          <Loader />
+        ) : (
+          <div>
+            <img src={userData.avatar_url} alt="Avatar do Usuário" />
+            <h2>{userData.name}</h2>
+            <Link to={`/${userData.login}/repos`}>Repositórios</Link>
+          </div>
+        )}
       </div>
     );
   }
