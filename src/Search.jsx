@@ -60,7 +60,7 @@ class Search extends Component {
         <Header />
         <input type="text" value={searchTerm} onChange={this.handleChange} />
         <button onClick={this.handleGetData}>
-          <i class="fa fa-search" aria-hidden="true" /> Pesquisar
+          <i className="fa fa-search" aria-hidden="true" /> Pesquisar
         </button>
         {loading ? <Loader /> : searchData.length > 0 ? results : <p>Nenhum resultado encontrado</p>}
       </div>
