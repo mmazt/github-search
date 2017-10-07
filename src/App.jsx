@@ -12,7 +12,7 @@ import store from './store';
 const App = () => (
   <BrowserRouter>
     <Provider store={store}>
-      <div className="app">
+      <div className="l-constrained">
         <Switch>
           {/* Rota para a Landing Page */}
           <Route exact path="/" component={Landing} />

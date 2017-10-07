@@ -1,0 +1,118 @@
+/*
+ * SMACSS + SCSS starter v2.1
+ * Inspired by SMACSS http://smacss.com
+ * Author: @jonathanpath
+ * Date: 4 August 2015
+ *
+ * https://github.com/jonathanpath/SASS-SMACSS
+ * See file structure in http://jonathanpath.com/sass+smacss/scss/style.scss
+ *
+ * Coding rules : https://github.com/necolas/idiomatic-css
+ *
+ */
+/* Site settings */
+/* Vendor */
+/* Override */
+/* Base */
+/* ===========================
+   Base
+   =========================== */
+body {
+  margin: 0;
+  padding: 0;
+  font: "Open Sans", Helvetica, Arial, sans-serif; }
+
+/* Layouts */
+/* ==|====================
+   Layout/Constrained
+   ======================= */
+.l-constrained {
+  max-width: pxtoem(1140, 16);
+  padding: 0 pxtoem(20, 16);
+  margin: 0 auto; }
+
+/* =======================
+   Layout/Header
+   ======================= */
+.l-header {
+  max-width: 90%;
+  margin: 0 auto; }
+
+/* Modules */
+/* ==|====================
+   Module/Box
+   ======================= */
+/* =======================
+   Module/Loader
+   ======================= */
+.loader-wrapper {
+  text-align: 'center';
+  width: '100px';
+  height: '100px';
+  position: 'fixed';
+  top: '50%';
+  left: '50%'; }
+
+.loader {
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #212121;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  margin: 0 auto;
+  animation: spin 1s linear infinite; }
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg); }
+  100% {
+    transform: rotate(360deg); } }
+
+/* =======================
+   Module/Search
+   ======================= */
+.search-input {
+  margin: 0;
+  width: 250px;
+  font-family: "Open Sans", Helvetica, Arial, sans-serif;
+  font-size: 0.9em;
+  padding: 5px;
+  padding-left: 22px;
+  border-width: 1.3px;
+  border-style: inset;
+  border-color: initial;
+  border-image: initial;
+  border-radius: 10px; }
+
+.wrapper:before {
+  font-family: 'FontAwesome', serif;
+  color: grey;
+  position: relative;
+  top: 0;
+  left: 20px;
+  content: '\f002'; }
+
+.search-button {
+  cursor: pointer;
+  display: inline-block;
+  margin: 0 0 2px 10px;
+  padding: 5px 8px 4.2px 8px;
+  font-size: 0.8rem;
+  line-height: 1.8;
+  box-shadow: none;
+  border-radius: 8px;
+  color: #fff;
+  background-color: #6496c8;
+  text-shadow: -1px 1px #417cb8;
+  border: none; }
+
+.search-button:focus {
+  outline: none; }
+
+.search-button:hover {
+  background-color: #346392;
+  text-shadow: -1px 1px #27496d; }
+
+.search-button:active {
+  background-color: #27496d;
+  text-shadow: -1px 1px #193047; }

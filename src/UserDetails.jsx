@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import getData from './requests/Requests';
 import * as requests from './requests/requestList';
 import { setUserData } from './actions/actionCreators';
-import Loader from './helper/Loader';
+import Loader from './common/Loader';
 import Header from './Header';
 
 class UserDetails extends React.Component {
