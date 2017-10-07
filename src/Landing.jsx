@@ -17,9 +17,10 @@ class Landing extends React.Component {
     return (
       <div>
         <h1> Landing</h1>
-        <input onChange={this.handleChange} />
+        <input type="text" onChange={this.handleChange} />
         <button onClick={this.handleClick}>
-          <i class="fa fa-search" aria-hidden="true" />Pesquisar
+          <i class="fa fa-search" aria-hidden="true" />
+          Pesquisar
         </button>
       </div>
     );

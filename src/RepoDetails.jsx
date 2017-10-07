@@ -13,17 +13,19 @@ class RepoDetails extends React.Component {
     });
   }
   render() {
+    const { repo } = this.props;
     return (
       <div>
         <Header />
         <h1>Repo Details</h1>
+        <h2>{repo.name}</h2>
       </div>
     );
   }
 }
 
 function mapStateToProps(state) {
-  return { repo: state.repoDetail };
+  return { repo: state.repoDetails };
 }
 
 export default connect(mapStateToProps)(RepoDetails);

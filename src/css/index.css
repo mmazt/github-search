@@ -1,5 +1,45 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-family: 'Open Sans', sans-serif;
+}
+
+button {
+  display: inline-block;
+  margin: 0 0 2px 0;
+  padding: 6px;
+
+  font-size: 0.8rem;
+  line-height: 1.8;
+  box-shadow: none;
+  border-radius: 0;
+  color: #fff;
+  background-color: #6496c8;
+  text-shadow: -1px 1px #417cb8;
+  border: none;
+}
+
+button:focus {
+  outline: none;
+}
+
+button:hover {
+  background-color: #346392;
+  text-shadow: -1px 1px #27496d;
+}
+
+button:active {
+  background-color: #27496d;
+  text-shadow: -1px 1px #193047;
+}
+
+input[type='text'] {
+  margin: 0;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1em;
+  padding: 4px;
+}
+
+.gitCard {
+  padding: 10px;
 }

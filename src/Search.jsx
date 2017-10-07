@@ -38,46 +38,31 @@ class Search extends Component {
     this.props.dispatch(setSearchTerm(search));
   };
 
-  handleTableRows = item => (
-    <tr key={item.login}>
-      <td>{item.login}</td>
-      <td>{item.html_url}</td>
-      <td>
-        <Link to={`/${item.login}`}>Abrir</Link>
-      </td>
-    </tr>
+  handleItemCard = item => (
+    <div key={item.login} className="gitCard">
+      <div>
+        <Link to={`/${item.login}`}>{item.login}</Link>
+      </div>
+      <div>{item.name}</div>
+      <div>{item.html_url}</div>
+    </div>
   );
 
   render() {
     const { loading } = this.state;
     const { searchData, searchTerm } = this.props;
     const results = searchData.map(item => {
-      return this.handleTableRows(item);
+      return this.handleItemCard(item);
     });
 
     return (
       <div className="App">
         <Header />
-        <input value={searchTerm} onChange={this.handleChange} />
+        <input type="text" value={searchTerm} onChange={this.handleChange} />
         <button onClick={this.handleGetData}>
-          <i class="fa fa-search" aria-hidden="true" />Pesquisar
+          <i class="fa fa-search" aria-hidden="true" /> Pesquisar
         </button>
-        {loading ? (
-          <Loader />
-        ) : searchData.length > 0 ? (
-          <table>
-            <thead>
-              <tr>
-                <th>Nome</th>
-                <th>URL</th>
-                <th>Link</th>
-              </tr>
-            </thead>
-            <tbody>{results}</tbody>
-          </table>
-        ) : (
-          <p>Nenhum resultado encontrado</p>
-        )}
+        {loading ? <Loader /> : searchData.length > 0 ? results : <p>Nenhum resultado encontrado</p>}
       </div>
     );
   }
