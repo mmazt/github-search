@@ -229,3 +229,11 @@ a {
 .search-button:active {
   background-color: #a20000;
   text-shadow: -1px 1px #bc0000; }
+
+.pagination-link a {
+  font-family: "Open Sans", Helvetica, Arial, sans-serif;
+  color: #d50000; }
+
+.pagination-link {
+  font-family: "Open Sans", Helvetica, Arial, sans-serif;
+  color: #d50000; }

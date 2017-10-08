@@ -7,9 +7,16 @@ import getData from './requests/Requests';
 import * as requests from './requests/requestList';
 import Header from './Header';
 import SearchComponent from './common/SearchComponent';
+import Pagination from './common/Pagination';
 
 class Search extends Component {
   state = { loading: false };
+
+  //Função que captura os dados digitados e chama a ação no Redux para atualizar o searchTerm na store
+  handleChange = evento => {
+    const search = evento.target.value;
+    this.props.dispatch(setSearchTerm(search));
+  };
 
   //Função responsável por enviar a request de procura ao servidor do Github e chamar a ação do Redux para salvar os dados na store
   handleGetData = e => {
@@ -20,20 +27,30 @@ class Search extends Component {
     data
       .then(response => {
         pageData.page += 1;
-
-        let total = Math.floor(response.total_count / 20);
+        let total = Math.ceil(response.total_count / 20);
         this.props.dispatch(setSearchData(response.items));
-        this.props.dispatch(setPaginationData({ total, page: pageData.page })); //Envia os dados para a store
+        this.props.dispatch(setPaginationData({ total, page: 1, total_count: response.total_count })); //Envia os dados para a store
       })
       .then(() => {
         this.setState({ loading: false }); //Retira o estado de loading
       });
   };
 
-  //Função que captura os dados digitados e chama a ação no Redux para atualizar o searchTerm na store
-  handleChange = e => {
-    const search = e.target.value;
-    this.props.dispatch(setSearchTerm(search));
+  handleChangePage = (evento, page) => {
+    //Função que envia uma nova chamada de paginação para o servidor
+    evento.preventDefault();
+    this.setState({ loading: true });
+    const { searchTerm } = this.props;
+    const data = getData(requests.search, { searchTerm, page: page }); //Requisita os dados com a nova paginação
+    data
+      .then(response => {
+        let total = Math.ceil(response.total_count / 20);
+        this.props.dispatch(setSearchData(response.items));
+        this.props.dispatch(setPaginationData({ total, page: page, total_count: response.total_count })); //Envia os dados para a store
+      })
+      .then(() => {
+        this.setState({ loading: false }); //Retira o estado de loading
+      });
   };
 
   handleItemCard = item => (
@@ -53,17 +70,15 @@ class Search extends Component {
 
   render() {
     const { loading } = this.state;
-    const { searchData, searchTerm } = this.props;
+    const { searchData, searchTerm, pageData } = this.props;
     const results = searchData.map(item => {
       return this.handleItemCard(item);
     });
-    const pages = [...Array(this.props.pageData.total)]
-      .map((item, i) => {
-        return <div>{i}</div>;
-      })
-      .filter((item, i) => {
-        return i < 3 || i > this.props.pageData.total - 3;
-      });
+    const pages = Pagination({ pageData: this.props.pageData, handleChangePage: this.handleChangePage });
+    const results_num = {
+      min: pageData.page * 20 - 20 + 1,
+      max: pageData.page * 20 <= pageData.total_count ? pageData.page * 20 : pageData.total_count
+    };
     return (
       <div>
         <Header />
@@ -72,11 +87,27 @@ class Search extends Component {
             <form onSubmit={this.handleGetData}>
               <SearchComponent value={searchTerm} handleChange={this.handleChange} handleClick={this.handleGetData} />
             </form>
-            <div style={{ textAlign: 'right', margin: '15px 0 0 0' }}>{pages}</div>
           </div>
+          {!loading && results && pages.length > 3 ? (
+            <div style={{ fontFamily: 'Open Sans', fontSize: '0.9em', marginTop: '10px' }}>
+              Exibindo resultados do {results_num.min} ao {results_num.max} de {pageData.total_count}
+            </div>
+          ) : (
+            ''
+          )}
+          {!loading && results && pages.length > 3 ? (
+            <div style={{ textAlign: 'right', margin: '15px 0 0 0', paddingBottom: '0' }}>{pages}</div>
+          ) : (
+            ''
+          )}
           <div className="l-search">
             {loading ? <Loader /> : searchData.length > 0 ? results : <p>Nenhum resultado encontrado</p>}
           </div>
+          {!loading && results && pages.length > 3 ? (
+            <div style={{ textAlign: 'right', margin: '15px 0 0 0' }}>{pages}</div>
+          ) : (
+            ''
+          )}
         </div>
       </div>
     );
