@@ -1,0 +1,78 @@
+.l-reposlist-header {
+  font-family: $font1;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.l-reposlist-table {
+  max-width: 75vw;
+  margin: 0 auto;
+  font-family: $font1;
+  border-collapse: collapse;
+}
+
+.l-reposlist-table thead tr {
+  border-bottom: 3px solid $color1;
+}
+
+.l-reposlist-table th {
+  text-align: left;
+  padding-bottom: 5px;
+}
+
+.l-reposlist-table tbody td {
+  padding: 6px 0 6px 10px;
+}
+.l-reposlist-table tbody tr:first-child {
+  padding-top: 10px;
+}
+
+.l-reposlist-table tbody tr:nth-child(odd) {
+  background-color: #f5f5f5;
+}
+
+.l-reposlist-name {
+  max-width: 30%;
+}
+
+.l-reposlist-name a {
+  color: $color1;
+}
+.l-reposlist-name a:hover {
+  color: $color2;
+}
+
+.l-reposlist-url {
+  max-width: 40%;
+}
+
+.l-reposlist-star {
+  max-width: 20px;
+}
+
+.l-reposlist-sort {
+  color: $color1;
+}
+
+.l-reposlist-sort:hover {
+  cursor: pointer;
+  color: $color3;
+}
+
+.l-reposlist-star-icon {
+  color: #fdd835;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+@media only screen and (min-device-width: 300px) and (max-device-width: 900px) {
+  .l-reposlist-star-header {
+    padding-left: 8px;
+    white-space: nowrap;
+  }
+  .l-reposlist-url {
+    display: none;
+  }
+  .l-reposlist-url-header {
+    display: none;
+  }
+}

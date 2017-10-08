@@ -34,10 +34,34 @@ class UserDetails extends React.Component {
         {loading ? (
           <Loader />
         ) : (
-          <div>
-            <img src={userData.avatar_url} alt="Avatar do Usuário" />
-            <h2>{userData.name}</h2>
-            <Link to={`/${userData.login}/repos`}>Repositórios</Link>
+          <div className="l-user">
+            <div className="l-user-avatar-container">
+              <img className="l-user-avatar" src={userData.avatar_url} alt="Avatar do Usuário" />
+            </div>
+            <div className="l-user-data-container">
+              <h2>
+                {userData.login} - {userData.name}
+              </h2>
+              <h3>{userData.html_url}</h3>
+              <p>
+                <strong>Bio:</strong> {userData.bio ? userData.bio : 'Não Informado'}
+              </p>
+              <p>
+                <strong>E-Mail: </strong>
+                {userData.email ? userData.email : 'Não Informado'}
+              </p>
+              <p>
+                <strong>Seguindo: </strong>
+                {userData.following ? userData.following : 0}
+              </p>
+              <p>
+                <strong>Seguidores: </strong>
+                {userData.followers ? userData.followers : 0}
+              </p>
+              <Link to={`/${userData.login}/repos`}>
+                <strong>Repositórios ( {userData.public_repos ? userData.public_repos : 0} ) </strong>
+              </Link>
+            </div>
           </div>
         )}
       </div>

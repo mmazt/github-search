@@ -1,0 +1,43 @@
+.l-user {
+  font-family: $font1;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.l-user-avatar-container {
+  margin: 15px;
+  flex-grow: 2;
+}
+.l-user-avatar {
+  width: 20vw;
+  border-radius: 50%;
+  float: right;
+}
+.l-user-data-container {
+  margin: 15px;
+  flex-grow: 2;
+}
+
+.l-user-data-container a {
+  color: $color1;
+}
+.l-user-data-container a:hover {
+  color: $color2;
+}
+
+@media only screen and (min-device-width: 300px) and (max-device-width: 900px) {
+  .l-user {
+    flex-direction: column;
+    align-items: center;
+  }
+  .l-user-avatar {
+    width: 70vw;
+  }
+  .l-user-data-container {
+    font-size: 0.95em;
+    padding: 5vw;
+    max-width: 80vw;
+    text-align: center;
+  }
+}
