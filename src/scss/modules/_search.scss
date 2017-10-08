@@ -4,7 +4,7 @@
 
 .search-input {
   margin: 0;
-  width: 250px;
+  width: 35vw;
   font-family: $font1;
   font-size: 0.9em;
   padding: 5px;
@@ -18,7 +18,7 @@
 
 .wrapper:before {
   font-family: 'FontAwesome', serif;
-  color: grey;
+  color: #212121;
   position: relative;
   top: 0;
   left: 20px;
@@ -35,8 +35,8 @@
   box-shadow: none;
   border-radius: 8px;
   color: #fff;
-  background-color: #6496c8;
-  text-shadow: -1px 1px #417cb8;
+  background-color: $color1;
+  text-shadow: -1px 1px $color2;
   border: none;
 }
 
@@ -45,11 +45,11 @@
 }
 
 .search-button:hover {
-  background-color: #346392;
-  text-shadow: -1px 1px #27496d;
+  background-color: $color2;
+  text-shadow: -1px 1px $color3;
 }
 
 .search-button:active {
-  background-color: #27496d;
-  text-shadow: -1px 1px #193047;
+  background-color: $color3;
+  text-shadow: -1px 1px $color2;
 }

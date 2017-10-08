@@ -1,0 +1,19 @@
+/* =======================
+   Module/Logo
+   ======================= */
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-img {
+  max-width: 50px;
+  margin-right: 10px;
+}
+
+.logo-text {
+  font-family: 'Open Sans', Arial, sans-serif;
+  white-space: nowrap;
+}

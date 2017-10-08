@@ -4,12 +4,14 @@ import getData from './requests/Requests';
 import * as requests from './requests/requestList';
 import { setSearchTerm, setSearchData } from './actions/actionCreators';
 import SearchComponent from './common/SearchComponent';
+import Logo from './common/Logo';
 
 class Landing extends React.Component {
   handleChange = evento => {
     this.props.dispatch(setSearchTerm(evento.target.value));
   };
   handleClick = evento => {
+    evento.preventDefault();
     getData(requests.search, { searchTerm: this.props.searchTerm, page: 1 }).then(response => {
       this.props.dispatch(setSearchData(response.items));
       this.props.history.push('/search');
@@ -17,9 +19,15 @@ class Landing extends React.Component {
   };
   render() {
     return (
-      <div>
-        <h1> Landing</h1>
-        <SearchComponent handleChange={this.handleChange} handleClick={this.handleClick} />
+      <div className="landing">
+        <Logo />
+        <form onSubmit={this.handleClick}>
+          <SearchComponent
+            handleChange={this.handleChange}
+            value={this.props.searchTerm}
+            handleClick={this.handleClick}
+          />
+        </form>
       </div>
     );
   }

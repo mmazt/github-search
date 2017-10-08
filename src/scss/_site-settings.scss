@@ -17,8 +17,11 @@ $blue: #1894c4;
 $facebook: #3b5998;
 $twitter: #43bfe1;
 
-$color1: $red;
-$color2: $blue;
+$logo-color: #d50000;
+
+$color1: $logo-color;
+$color2: darken($logo-color, 5%);
+$color3: darken($logo-color, 10%);
 
 // = Grid
 // -----------------------------
