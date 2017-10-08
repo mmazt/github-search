@@ -22,7 +22,11 @@ body {
   padding: 0; }
 
 h1 {
-  font-size: 1.5em; }
+  font-size: 1.5rem; }
+
+a {
+  text-decoration: none;
+  color: black; }
 
 /* Layouts */
 /* ==|====================
@@ -39,8 +43,44 @@ h1 {
 .l-header {
   display: flex;
   height: 10vh;
-  width: 100vw;
-  justify-content: flex-start; }
+  width: 90vw;
+  margin: 1vw auto;
+  align-items: center;
+  justify-content: space-between; }
+
+.l-header-box-1 {
+  flex-basis: 200px; }
+
+.l-header-box-2 {
+  font-family: "Open Sans", Helvetica, Arial, sans-serif;
+  flex-grow: 1;
+  text-align: right; }
+
+.header-back-symbol,
+.header-search-symbol {
+  font-size: 1.8em;
+  color: #d50000; }
+
+.header-back-symbol {
+  margin-left: 25px; }
+
+.header-back-text,
+.header-search-text {
+  font-size: 1.2em;
+  font-weight: 900; }
+
+@media only screen and (max-device-width: 480px) {
+  .header-back-text {
+    display: none; }
+  .header-search-text {
+    display: none; } }
+
+@media only screen and (max-device-width: 321px) {
+  .header-back-symbol,
+  .header-search-symbol {
+    font-size: 1.3em; }
+  .header-back-symbol {
+    margin-left: 10px; } }
 
 .landing {
   display: flex;
@@ -48,6 +88,49 @@ h1 {
   justify-content: center;
   align-items: center;
   height: 80vh; }
+
+.l-search-container {
+  display: flex;
+  flex-direction: column;
+  width: 90vw;
+  margin-top: 5vh;
+  justify-content: center;
+  align-items: center; }
+
+.l-search-input {
+  align-self: center; }
+
+.l-search {
+  display: flex;
+  flex-direction: column;
+  max-width: 90vw;
+  margin-top: 5vh;
+  justify-content: center; }
+
+.l-search-box {
+  margin: 10px 0;
+  font-family: "Open Sans", Helvetica, Arial, sans-serif;
+  text-align: left;
+  flex: 1 100%; }
+
+.l-search-avatar {
+  width: 4vw;
+  min-width: 40px;
+  border-radius: 50px; }
+
+.l-search-link-text {
+  margin-top: 10px;
+  margin-left: 5vw; }
+
+.l-search-avatar,
+.l-search-link-text {
+  float: left; }
+
+.l-search-box a {
+  color: #d50000; }
+
+.l-search-box a:hover {
+  color: #a20000; }
 
 /*Modules*/
 /* ==|====================
@@ -62,7 +145,7 @@ h1 {
   height: 100px;
   position: fixed;
   bottom: 50vh;
-  left: 50vw; }
+  left: 45vw; }
 
 .loader {
   border: 4px solid #f3f3f3;
@@ -88,11 +171,14 @@ h1 {
   justify-content: center; }
 
 .logo-img {
-  max-width: 50px;
-  margin-right: 10px; }
+  width: 3.2vw;
+  min-width: 35px;
+  margin-right: 10px;
+  margin-bottom: 10px; }
 
 .logo-text {
   font-family: 'Open Sans', Arial, sans-serif;
+  font-size: 1.6em;
   white-space: nowrap; }
 
 /* =======================

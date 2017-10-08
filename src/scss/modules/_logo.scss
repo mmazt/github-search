@@ -9,11 +9,14 @@
 }
 
 .logo-img {
-  max-width: 50px;
+  width: 3.2vw;
+  min-width: 35px;
   margin-right: 10px;
+  margin-bottom: 10px;
 }
 
 .logo-text {
   font-family: 'Open Sans', Arial, sans-serif;
+  font-size: 1.6em;
   white-space: nowrap;
 }

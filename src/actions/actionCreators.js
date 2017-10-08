@@ -19,3 +19,7 @@ export function setReposData(reposData) {
 export function setRepoDetails(reposData) {
   return { type: types.SET_REPO_DETAILS, payload: reposData };
 }
+
+export function setPaginationData(pageData) {
+  return { type: types.SET_PAGINATION_DATA, payload: pageData };
+}

@@ -5,6 +5,52 @@
 .l-header {
   display: flex;
   height: 10vh;
-  width: 100vw;
-  justify-content: flex-start;
+  width: 90vw;
+  margin: 1vw auto;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.l-header-box-1 {
+  flex-basis: 200px;
+}
+
+.l-header-box-2 {
+  font-family: $font1;
+  flex-grow: 1;
+  text-align: right;
+}
+
+.header-back-symbol,
+.header-search-symbol {
+  font-size: 1.8em;
+  color: $color1;
+}
+
+.header-back-symbol {
+  margin-left: 25px;
+}
+.header-back-text,
+.header-search-text {
+  font-size: 1.2em;
+  font-weight: 900;
+}
+
+@media only screen and (max-device-width: 480px) {
+  .header-back-text {
+    display: none;
+  }
+  .header-search-text {
+    display: none;
+  }
+}
+
+@media only screen and (max-device-width: 321px) {
+  .header-back-symbol,
+  .header-search-symbol {
+    font-size: 1.3em;
+  }
+  .header-back-symbol {
+    margin-left: 10px;
+  }
 }
