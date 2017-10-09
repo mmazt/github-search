@@ -23,7 +23,8 @@ Após a instalação das dependências, digite:
 
 `npm run build`
 
-Quando a build estiver finalizada, rode o comando `serve -g build`
+Quando a build estiver finalizada, digite o comando: 
+`serve -g build`
 
 Acesse o aplicativo em http://localhost:5000
 
