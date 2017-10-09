@@ -125,8 +125,7 @@ a {
   display: flex;
   flex-direction: column;
   margin-top: 2vh;
-  justify-content: center;
-  align-items: space-around; }
+  align-items: baseline; }
 
 .l-search-box {
   margin: 10px 0;
@@ -372,9 +371,15 @@ a {
   margin-bottom: 10px; }
 
 .logo-text {
-  font-family: 'Open Sans', Arial, sans-serif;
+  font-family: "Open Sans", Helvetica, Arial, sans-serif;
   font-size: 1.6em;
   white-space: nowrap; }
+
+@media only screen and (min-device-width: 300px) and (max-device-width: 900px) {
+  .logo-text {
+    font-family: "Open Sans", Helvetica, Arial, sans-serif;
+    font-size: 1.3em;
+    white-space: nowrap; } }
 
 /* =======================
    Module/Search
