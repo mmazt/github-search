@@ -49,6 +49,12 @@
 .l-reposlist-url {
   max-width: 40%;
 }
+.l-reposlist-link {
+  color: $color3;
+}
+.l-reposlist-link:hover {
+  color: $color2;
+}
 
 .l-reposlist-star {
   max-width: 20px;

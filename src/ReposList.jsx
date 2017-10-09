@@ -26,7 +26,7 @@ class ReposList extends React.Component {
           <Link to={`/${user}/${item.name}`}>{item.name}</Link>
         </td>
         <td className="l-reposlist-url">
-          <a className="l-repodetails-link" href={item.html_url} target="_blank" rel="nofollow norefferer">
+          <a className="l-reposlist-link" href={item.html_url} target="_blank" rel="nofollow norefferer">
             {item.html_url} &nbsp;<i className="fa fa-external-link" aria-hidden="true" />
           </a>
         </td>

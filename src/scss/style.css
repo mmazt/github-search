@@ -248,6 +248,12 @@ a {
 .l-reposlist-url {
   max-width: 40%; }
 
+.l-reposlist-link {
+  color: #a20000; }
+
+.l-reposlist-link:hover {
+  color: #bc0000; }
+
 .l-reposlist-star {
   max-width: 20px; }
 
