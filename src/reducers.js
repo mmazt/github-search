@@ -6,7 +6,8 @@ const DEFAULT_STATE = {
   userData: {},
   reposData: [],
   repoDetails: {},
-  pageData: { total: 0, page: 0 }
+  pageData: { total: 0, page: 0 },
+  connectionError: false
 };
 
 const setSearchTerm = (state, action) => Object.assign({}, state, { searchTerm: action.payload });

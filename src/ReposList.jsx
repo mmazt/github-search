@@ -1,10 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import getData from './requests/Requests';
 import * as requests from './requests/requestList';
 import { setReposData } from './actions/actionCreators';
 import Header from './Header';
+import SortTable from './common/SortTable';
 
 class ReposList extends React.Component {
   state = { sort: true };
@@ -16,6 +18,7 @@ class ReposList extends React.Component {
   }
 
   handleRepos = item => {
+    //Criação das table rows de cada repositório
     const { user } = this.props.match.params;
     return (
       <tr key={item.name}>
@@ -32,6 +35,7 @@ class ReposList extends React.Component {
   };
 
   handleChangeOrder = e => {
+    //Função responsável por mudar a direção do sort da tabela
     e.preventDefault();
     let sort = !this.state.sort;
     this.setState({ sort });
@@ -41,33 +45,11 @@ class ReposList extends React.Component {
     const { repositories } = this.props;
     let sortIcon = this.state.sort === true ? 'fa fa-sort-numeric-desc' : 'fa fa-sort-numeric-asc';
     sortIcon += ' l-reposlist-sort';
-    const repos = repositories
-      .sort((a, b) => {
-        if (this.state.sort === true) {
-          if (a.stargazers_count > b.stargazers_count) {
-            return -1;
-          }
-          if (a.stargazers_count < b.stargazers_count) {
-            return 1;
-          }
-          return 0;
-        }
-        if (this.state.sort === false) {
-          if (a.stargazers_count < b.stargazers_count) {
-            return -1;
-          }
-          if (a.stargazers_count > b.stargazers_count) {
-            return 1;
-          }
-          return 0;
-        }
-        return undefined;
-      })
-      .map(item => this.handleRepos(item));
+    const repos = SortTable(repositories, this.state.sort).map(item => this.handleRepos(item));
 
     return (
       <div>
-        <Header />
+        <Header backPage={repositories && repositories[0] ? '/' + repositories[0].owner.login : ''} />
         <h1 className="l-reposlist-header">
           Repositórios de {repositories && repositories[0] ? repositories[0].owner.login : ''}
         </h1>
@@ -88,6 +70,10 @@ class ReposList extends React.Component {
     );
   }
 }
+
+ReposList.proptypes = {
+  repositories: PropTypes.Array
+};
 
 function mapStateToProps(state) {
   return { repositories: state.reposData };

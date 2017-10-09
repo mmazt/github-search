@@ -1,0 +1,67 @@
+/* =======================
+   Layout/RepoDetails
+   ======================= */
+
+.l-repodetails-container {
+  font-family: $font1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.l-repodetails {
+  display: flex;
+  flex-direction: column;
+}
+
+.l-repo-authorship {
+  display: flex;
+  margin: 15px 0 0;
+  justify-content: space-between;
+}
+.l-repo-authorname {
+  margin: 0 5px;
+}
+
+.l-repo-language {
+  margin: 0 5px;
+}
+
+.l-repo-stars {
+  margin: 0 5px;
+}
+
+.l-repodetails-code {
+  font-size: 1.4em;
+}
+
+.l-repodetails-link {
+  color: $color1;
+}
+.l-repodetails-link:hover {
+  color: $color2;
+}
+
+.l-repodetails-star-icon {
+  color: #fdd835;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+@media only screen and (min-device-width: 300px) and (max-device-width: 900px) {
+  .l-repo-authorship {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .l-repodetails-container {
+    font-size: 0.9em;
+  }
+  .l-repodetails-description {
+    text-align: center;
+  }
+  .l-repodetails-link {
+    word-break: break-all;
+  }
+}

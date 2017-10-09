@@ -82,6 +82,9 @@ a {
   .header-back-symbol {
     margin-left: 10px; } }
 
+/* =======================
+   Layout/Landing
+   ======================= */
 .landing {
   display: flex;
   flex-direction: column;
@@ -89,10 +92,28 @@ a {
   align-items: center;
   height: 80vh; }
 
+.error {
+  display: flex;
+  flex-direction: column;
+  margin: 50px;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  font-family: "Open Sans", Helvetica, Arial, sans-serif;
+  font-size: 1.2em; }
+
+.error a {
+  color: #d50000; }
+
+.error a:hover {
+  color: #bc0000; }
+
+/* =======================
+   Layout/Search
+   ======================= */
 .l-search-container {
   display: flex;
   flex-direction: column;
-  width: 90vw;
   margin-top: 5vh;
   justify-content: center;
   align-items: center; }
@@ -103,9 +124,9 @@ a {
 .l-search {
   display: flex;
   flex-direction: column;
-  max-width: 90vw;
-  margin-top: 5vh;
-  justify-content: center; }
+  margin-top: 2vh;
+  justify-content: center;
+  align-items: space-around; }
 
 .l-search-box {
   margin: 10px 0;
@@ -132,6 +153,22 @@ a {
 .l-search-box a:hover {
   color: #a20000; }
 
+.l-search-resultados {
+  font-family: "Open Sans", Helvetica, Arial, sans-serif;
+  font-size: 0.9em;
+  margin-top: 10px; }
+
+.l-search-noresults {
+  font-family: "Open Sans", Helvetica, Arial, sans-serif;
+  font-size: 0.9em; }
+
+.l-search-page {
+  text-align: right;
+  margin: 15px; }
+
+/* =======================
+   Layout/UserDetails
+   ======================= */
 .l-user {
   font-family: "Open Sans", Helvetica, Arial, sans-serif;
   display: flex;
@@ -169,6 +206,9 @@ a {
     max-width: 80vw;
     text-align: center; } }
 
+/* =======================
+   Layout/ReposList
+   ======================= */
 .l-reposlist-header {
   font-family: "Open Sans", Helvetica, Arial, sans-serif;
   text-align: center;
@@ -231,20 +271,69 @@ a {
   .l-reposlist-url-header {
     display: none; } }
 
-/*Modules*/
-/* ==|====================
-   Module/Box
+/* =======================
+   Layout/RepoDetails
    ======================= */
+.l-repodetails-container {
+  font-family: "Open Sans", Helvetica, Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; }
+
+.l-repodetails {
+  display: flex;
+  flex-direction: column; }
+
+.l-repo-authorship {
+  display: flex;
+  margin: 15px 0 0;
+  justify-content: space-between; }
+
+.l-repo-authorname {
+  margin: 0 5px; }
+
+.l-repo-language {
+  margin: 0 5px; }
+
+.l-repo-stars {
+  margin: 0 5px; }
+
+.l-repodetails-code {
+  font-size: 1.4em; }
+
+.l-repodetails-link {
+  color: #d50000; }
+
+.l-repodetails-link:hover {
+  color: #bc0000; }
+
+.l-repodetails-star-icon {
+  color: #fdd835;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; }
+
+@media only screen and (min-device-width: 300px) and (max-device-width: 900px) {
+  .l-repo-authorship {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center; }
+  .l-repodetails-container {
+    font-size: 0.9em; }
+  .l-repodetails-description {
+    text-align: center; }
+  .l-repodetails-link {
+    word-break: break-all; } }
+
+/*Modules*/
 /* =======================
    Module/Loader
    ======================= */
 .loader-wrapper {
-  text-align: center;
-  width: 100px;
-  height: 100px;
-  position: fixed;
-  bottom: 50vh;
-  left: 45vw; }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50vh; }
 
 .loader {
   border: 4px solid #f3f3f3;
@@ -336,3 +425,19 @@ a {
 .pagination-link {
   font-family: "Open Sans", Helvetica, Arial, sans-serif;
   color: #d50000; }
+
+.pagination-previous {
+  padding-left: 35px; }
+
+.pagination-next {
+  padding-left: 35px; }
+
+@media only screen and (min-device-width: 300px) and (max-device-width: 900px) {
+  .pagination-previous {
+    padding-left: 10px; }
+  .pagination-next {
+    padding-left: 10px; }
+  .pagination-previous-text {
+    display: none; }
+  .pagination-next-text {
+    display: none; } }

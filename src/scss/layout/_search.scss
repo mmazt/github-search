@@ -1,7 +1,10 @@
+/* =======================
+   Layout/Search
+   ======================= */
+
 .l-search-container {
   display: flex;
   flex-direction: column;
-  width: 90vw;
   margin-top: 5vh;
   justify-content: center;
   align-items: center;
@@ -12,9 +15,9 @@
 .l-search {
   display: flex;
   flex-direction: column;
-  max-width: 90vw;
-  margin-top: 5vh;
+  margin-top: 2vh;
   justify-content: center;
+  align-items: space-around;
 }
 
 .l-search-box {
@@ -45,4 +48,19 @@
 
 .l-search-box a:hover {
   color: $color3;
+}
+
+.l-search-resultados {
+  font-family: $font1;
+  font-size: 0.9em;
+  margin-top: 10px;
+}
+
+.l-search-noresults {
+  font-family: $font1;
+  font-size: 0.9em;
+}
+.l-search-page {
+  text-align: right;
+  margin: 15px;
 }

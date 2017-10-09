@@ -4,12 +4,22 @@ Esse é um aplicativo que realiza uma busca por usuários do GitHub, lista suas 
 
 ---
 
-Para instalar ele pelo Git: `git clone https://github.com/mmazt/github-search.git`
+Uma 'demo' funcional do aplicativo pode ser acessada em ?
 
-Ou então você pode copiar ele através desse link: https://github.com/mmazt/github-search/archive/master.zip e dezipar em um diretório de sua preferência. 
+Para instalar o aplicativo é necessário ter instalado o Nodejs no sistema.
 
-Após isso, executar `npm install` ou `yarn install` para instalar as dependencias.
+Abra um prompt de comando no Windows ou um terminal no Linux/MacOs e digite:
 
-Para rodar o aplicativo no modo dev, `npm start` ou `yarn start`.
-Para construir uma build e rodar um servidor de produção:
-`npm build` e depois de concluído `npm serve` e o servidor irá rodar o aplicativo no browser :+1:
+`git clone https://github.com/mmazt/github-search.git`
+Após o download ser concluído:
+`cd github-search`
+`npm install`
+Após a instalação das dependências, digite:
+`npm run build`
+Quando a build estiver finalizada, rode o comando `serve -g build`
+
+Acesse o aplicativo em http://localhost:5000
+
+Ao invés de utilizar o comando `git clone`, você pode copiar ele através desse link: https://github.com/mmazt/github-search/archive/master.zip e dezipar em um diretório de sua preferência. 
+
+Após isso, executar na pasta o comando `npm install` e seguir os demais comandos.

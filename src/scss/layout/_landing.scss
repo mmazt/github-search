@@ -1,7 +1,30 @@
+/* =======================
+   Layout/Landing
+   ======================= */
+
 .landing {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 80vh;
+}
+
+.error {
+  display: flex;
+  flex-direction: column;
+  margin: 50px;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  font-family: $font1;
+  font-size: 1.2em;
+}
+
+.error a {
+  color: $color1;
+}
+
+.error a:hover {
+  color: $color2;
 }

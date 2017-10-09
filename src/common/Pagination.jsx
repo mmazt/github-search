@@ -132,7 +132,7 @@ const Pagination = props => {
 
   pages.unshift(
     //Insere o botão de retornar uma página
-    <span key="anterior" className="pagination-link" style={{ paddingRight: '35px' }}>
+    <span key="anterior" className="pagination-link pagination-previous">
       <a
         href=""
         onClick={
@@ -143,14 +143,15 @@ const Pagination = props => {
               }
         }
       >
-        &nbsp;<i className="fa fa-chevron-left" aria-hidden="true" /> Anterior
+        &nbsp;<i className="fa fa-chevron-left" aria-hidden="true" />{' '}
+        <span className="pagination-previous-text">Anterior</span>
       </a>
     </span>
   );
 
   pages.push(
     //Insere o botão de prosseguir para a próxima página
-    <span key="proxima" className="pagination-link" style={{ paddingLeft: '35px' }}>
+    <span key="proxima" className="pagination-link pagination-next">
       <a
         href=""
         onClick={
@@ -161,7 +162,7 @@ const Pagination = props => {
               }
         }
       >
-        Próxima <i className="fa fa-chevron-right" aria-hidden="true" />
+        <span className="pagination-next-text">Próxima</span> <i className="fa fa-chevron-right" aria-hidden="true" />
       </a>
     </span>
   );

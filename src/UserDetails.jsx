@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import getData from './requests/Requests';
 import * as requests from './requests/requestList';
 import { setUserData } from './actions/actionCreators';
@@ -30,7 +31,7 @@ class UserDetails extends React.Component {
 
     return (
       <div>
-        <Header />
+        <Header backPage="/search" />
         {loading ? (
           <Loader />
         ) : (
@@ -68,6 +69,10 @@ class UserDetails extends React.Component {
     );
   }
 }
+
+UserDetails.propTypes = {
+  userData: PropTypes.object
+};
 
 function mapStateToProps(state) {
   return { userData: state.userData };

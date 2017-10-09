@@ -23,9 +23,14 @@ const getData = (tipo, dados) => {
   }
 
   let request = new Promise((resolve, reject) => {
-    axios.get(url).then(response => {
-      resolve(response.data);
-    });
+    axios
+      .get(url)
+      .then(response => {
+        resolve(response.data);
+      })
+      .catch(err => {
+        throw err;
+      });
   });
 
   return request;

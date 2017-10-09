@@ -2,12 +2,10 @@
    Module/Loader
    ======================= */
 .loader-wrapper {
-  text-align: center;
-  width: 100px;
-  height: 100px;
-  position: fixed;
-  bottom: 50vh;
-  left: 45vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
 }
 
 .loader {

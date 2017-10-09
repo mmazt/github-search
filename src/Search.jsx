@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Loader from './common/Loader';
+import PropTypes from 'prop-types';
 import { setSearchTerm, setSearchData, setPaginationData } from './actions/actionCreators';
 import getData from './requests/Requests';
 import * as requests from './requests/requestList';
@@ -53,7 +54,9 @@ class Search extends Component {
       });
   };
 
-  handleItemCard = item => (
+  handleItemCard = (
+    item //Função que cria o 'card' com as informações de cada usuário na página de busca
+  ) => (
     <div key={item.login} className="l-search-box">
       <div>
         <Link to={`/${item.login}`}>
@@ -74,14 +77,17 @@ class Search extends Component {
     const results = searchData.map(item => {
       return this.handleItemCard(item);
     });
-    const pages = Pagination({ pageData: this.props.pageData, handleChangePage: this.handleChangePage });
+    const pages = Pagination({ pageData: pageData, handleChangePage: this.handleChangePage });
+
     const results_num = {
+      //Gera os números de exibição de quais resultados estão sendo apresentados na tela em relação ao total
       min: pageData.page * 20 - 20 + 1,
       max: pageData.page * 20 <= pageData.total_count ? pageData.page * 20 : pageData.total_count
     };
+
     return (
       <div>
-        <Header />
+        <Header backPage="/" />
         <div className="l-search-container">
           <div className="l-search-input">
             <form onSubmit={this.handleGetData}>
@@ -89,33 +95,41 @@ class Search extends Component {
             </form>
           </div>
           {!loading && results && pages.length > 3 ? (
-            <div style={{ fontFamily: 'Open Sans', fontSize: '0.9em', marginTop: '10px' }}>
+            <div className="l-search-resultados">
               Exibindo resultados do {results_num.min} ao {results_num.max} de {pageData.total_count}
             </div>
           ) : (
             ''
           )}
-          {!loading && results && pages.length > 3 ? (
-            <div style={{ textAlign: 'right', margin: '15px 0 0 0', paddingBottom: '0' }}>{pages}</div>
-          ) : (
-            ''
-          )}
+          {!loading && results && pages.length > 3 ? <div className="l-search-page">{pages}</div> : ''}
           <div className="l-search">
-            {loading ? <Loader /> : searchData.length > 0 ? results : <p>Nenhum resultado encontrado</p>}
+            {loading ? (
+              <Loader />
+            ) : searchData.length > 0 ? (
+              results
+            ) : (
+              <p className="l-search-noresults">Nenhum resultado encontrado</p>
+            )}
           </div>
-          {!loading && results && pages.length > 3 ? (
-            <div style={{ textAlign: 'right', margin: '15px 0 0 0' }}>{pages}</div>
-          ) : (
-            ''
-          )}
+          {!loading && results && pages.length > 3 ? <div className="l-search-page">{pages}</div> : ''}
         </div>
       </div>
     );
   }
 }
 
-function mapStateToProps(state) {
-  return { searchTerm: state.searchTerm, searchData: state.searchData, pageData: state.pageData };
-}
+Search.propTypes = {
+  searchTerm: PropTypes.string,
+  searchData: PropTypes.array,
+  pageData: PropTypes.object
+};
 
+function mapStateToProps(state) {
+  return {
+    searchTerm: state.searchTerm,
+    searchData: state.searchData,
+    pageData: state.pageData
+  };
+}
+export const Unwrapped = Search;
 export default connect(mapStateToProps)(Search);

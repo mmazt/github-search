@@ -1,7 +1,6 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-
 import Landing from './Landing';
 import Search from './Search';
 import UserDetails from './UserDetails';
@@ -16,6 +15,7 @@ const App = () => (
         <Switch>
           {/* Rota para a Landing Page */}
           <Route exact path="/" component={Landing} />
+          {/*Rota para a página de pesquisa */}
           <Route path="/search" component={Search} />
           {/* Rota para a página de dados do usuário */}
           <Route exact path="/:user" component={UserDetails} />

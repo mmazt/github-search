@@ -7,3 +7,25 @@
   font-family: $font1;
   color: $color1;
 }
+
+.pagination-previous {
+  padding-left: 35px;
+}
+.pagination-next {
+  padding-left: 35px;
+}
+@media only screen and (min-device-width: 300px) and (max-device-width: 900px) {
+  .pagination-previous {
+    padding-left: 10px;
+  }
+  .pagination-next {
+    padding-left: 10px;
+  }
+  .pagination-previous-text {
+    display: none;
+  }
+
+  .pagination-next-text {
+    display: none;
+  }
+}
