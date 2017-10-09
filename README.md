@@ -13,6 +13,7 @@ Abra um prompt de comando no Windows ou um terminal no Linux/MacOs e digite:
 Após o download ser concluído:
 
 `cd github-search`
+
 `npm install`
 
 Após a instalação das dependências, digite:
