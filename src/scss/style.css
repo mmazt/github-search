@@ -331,6 +331,7 @@ a {
    ======================= */
 .loader-wrapper {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 50vh; }
@@ -427,14 +428,14 @@ a {
   color: #d50000; }
 
 .pagination-previous {
-  padding-left: 35px; }
+  padding-right: 35px; }
 
 .pagination-next {
   padding-left: 35px; }
 
 @media only screen and (min-device-width: 300px) and (max-device-width: 900px) {
   .pagination-previous {
-    padding-left: 10px; }
+    padding-right: 10px; }
   .pagination-next {
     padding-left: 10px; }
   .pagination-previous-text {
