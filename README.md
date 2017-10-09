@@ -4,6 +4,9 @@ Esse é um aplicativo que realiza uma busca por usuários do GitHub, lista suas 
 
 ---
 
+Uma 'demo' funcional do aplicativo pode ser acessada em https://search-git.surge.sh/
+
+
 Para instalar o aplicativo é necessário ter instalado o Nodejs no sistema.
 
 Abra um prompt de comando no Windows ou um terminal no Linux/MacOs e digite:
@@ -28,4 +31,3 @@ Ao invés de utilizar o comando `git clone`, você pode copiar o código do apli
 
 Após isso, executar na pasta o comando `npm install` e seguir os demais comandos.
 
-Uma 'demo' funcional do aplicativo pode ser acessada em https://search-git.surge.sh/
