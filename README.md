@@ -24,7 +24,7 @@ Quando a build estiver finalizada, rode o comando `serve -g build`
 
 Acesse o aplicativo em http://localhost:5000
 
-Ao invés de utilizar o comando `git clone`, você pode copiar ele através desse link: https://github.com/mmazt/github-search/archive/master.zip e dezipar em um diretório de sua preferência. 
+Ao invés de utilizar o comando `git clone`, você pode copiar o código do aplicativo através desse link: https://github.com/mmazt/github-search/archive/master.zip e dezipar em um diretório de sua preferência. 
 
 Após isso, executar na pasta o comando `npm install` e seguir os demais comandos.
 
