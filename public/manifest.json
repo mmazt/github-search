@@ -1,5 +1,6 @@
 {
   "name": "Github Search",
+  "short_name": "Git-Search",
   "icons": [
     {
       "src": "/android-chrome-192x192.png",
