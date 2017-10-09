@@ -24,6 +24,7 @@ Após a instalação das dependências, digite:
 `npm run build`
 
 Quando a build estiver finalizada, digite o comando: 
+
 `serve -s build`
 
 Acesse o aplicativo em http://localhost:5000
