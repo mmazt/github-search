@@ -27,4 +27,4 @@ Ao invés de utilizar o comando `git clone`, você pode copiar ele através dess
 
 Após isso, executar na pasta o comando `npm install` e seguir os demais comandos.
 
-Uma 'demo' funcional do aplicativo pode ser acessada em http://search-git.surge.sh/
+Uma 'demo' funcional do aplicativo pode ser acessada em https://search-git.surge.sh/
